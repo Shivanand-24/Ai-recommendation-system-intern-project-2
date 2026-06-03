@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script defer src="/static/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div>
+                <p class="badge">Prediction Result</p>
+                <h1>Predicted Species</h1>
+                <p>Review the classification outcome and model confidence.</p>
+            </div>
+            <button id="theme-toggle">Toggle Theme</button>
+        </header>
+
+        <section class="card-grid">
+            <div class="card">
+                <h3>Species</h3>
+                <p class="badge">{{ prediction }}</p>
+            </div>
+            <div class="card">
+                <h3>Confidence</h3>
+                <p class="badge">{{ confidence }}</p>
+            </div>
+            <div class="card">
+                <h3>Accuracy</h3>
+                <p class="badge">{{ accuracy }}</p>
+            </div>
+        </section>
+
+        <div class="card">
+            <h3>Your Input</h3>
+            <p><strong>Sepal Length:</strong> {{ input_values[0] }} cm</p>
+            <p><strong>Sepal Width:</strong> {{ input_values[1] }} cm</p>
+            <p><strong>Petal Length:</strong> {{ input_values[2] }} cm</p>
+            <p><strong>Petal Width:</strong> {{ input_values[3] }} cm</p>
+            <a class="block-link" href="/predict"><button>Make Another Prediction</button></a>
+        </div>
+
+        <footer class="footer">
+            <p>Return to the <a class="block-link" href="/">Homepage</a> to learn more or try different values.</p>
+        </footer>
+    </div>
+</body>
+</html>

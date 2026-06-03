@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script defer src="/static/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div>
+                <p class="badge">Prediction Module</p>
+                <h1>Enter Iris Measurements</h1>
+                <p>Fill in the sepal and petal dimensions to predict the Iris species.</p>
+            </div>
+            <button id="theme-toggle">Toggle Theme</button>
+        </header>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="card">
+            <h3>Prediction Form</h3>
+            <form id="prediction-form" action="/predict" method="post">
+                <div class="form-grid">
+                    <label>
+                        Sepal Length (cm)
+                        <input type="number" step="0.1" name="sepal_length" placeholder="5.1" required />
+                    </label>
+                    <label>
+                        Sepal Width (cm)
+                        <input type="number" step="0.1" name="sepal_width" placeholder="3.5" required />
+                    </label>
+                    <label>
+                        Petal Length (cm)
+                        <input type="number" step="0.1" name="petal_length" placeholder="1.4" required />
+                    </label>
+                    <label>
+                        Petal Width (cm)
+                        <input type="number" step="0.1" name="petal_width" placeholder="0.2" required />
+                    </label>
+                </div>
+                <button type="submit">Predict Species</button>
+            </form>
+        </div>
+
+        <footer class="footer">
+            <p>Designed for beginner-friendly AI learning with a clean interface.</p>
+        </footer>
+    </div>
+</body>
+</html>

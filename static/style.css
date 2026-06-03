@@ -1,0 +1,214 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #08101f;
+    --surface: rgba(16, 27, 50, 0.92);
+    --surface-strong: rgba(22, 38, 68, 0.98);
+    --text: #edf2ff;
+    --text-muted: #9bb5d0;
+    --accent: #7c5cff;
+    --accent-soft: rgba(124, 92, 255, 0.18);
+    --border: rgba(255, 255, 255, 0.08);
+    --shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: var(--text);
+    background: radial-gradient(circle at top left, rgba(124, 92, 255, 0.22), transparent 24%),
+                radial-gradient(circle at bottom right, rgba(59, 210, 255, 0.12), transparent 20%),
+                linear-gradient(180deg, #060d18 0%, #08121f 100%);
+}
+
+.container {
+    width: min(1100px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 32px 0;
+}
+
+.header,
+.section-header,
+.hero-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.header h1,
+.section-header h2,
+.hero-card h2 {
+    margin: 0;
+    font-size: clamp(2rem, 2.6vw, 2.8rem);
+}
+
+.header p,
+.card p,
+.badge-small,
+.footer p,
+.alert {
+    color: var(--text-muted);
+}
+
+.hero-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    padding: 32px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(20px);
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.card-grid,
+.form-grid {
+    display: grid;
+    gap: 22px;
+}
+
+.card-grid {
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+}
+
+.card,
+.table-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    padding: 24px;
+    backdrop-filter: blur(18px);
+}
+
+.card h3,
+.table-card h3 {
+    margin-top: 0;
+    color: var(--text);
+}
+
+.badge,
+.badge-small {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    border: none;
+    border-radius: 16px;
+    padding: 15px 26px;
+    color: #fff;
+    background: linear-gradient(135deg, #7c5cff, #4ac8ff);
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 38px rgba(54, 91, 203, 0.22);
+}
+
+input,
+select {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: rgba(124, 92, 255, 0.7);
+    box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.12);
+}
+
+input.invalid {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.16);
+}
+
+.table-card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+}
+
+.table-card th,
+.table-card td {
+    text-align: left;
+    padding: 14px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.table-card th {
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.alert {
+    border-radius: 18px;
+    padding: 16px 20px;
+    margin-bottom: 22px;
+}
+
+.alert.error {
+    background: rgba(255, 87, 87, 0.12);
+    color: #ffb3b3;
+}
+
+.footer {
+    margin-top: 36px;
+    text-align: center;
+}
+
+.block-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.form-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+}
+
+@media (max-width: 900px) {
+    .card-grid,
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 20px 0;
+    }
+
+    .header,
+    .hero-card,
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script defer src="/static/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div>
+                <p class="badge">AI Data Classification System</p>
+                <h1>Iris Flower Species Classifier</h1>
+                <p>Discover how a supervised Decision Tree model predicts Iris species using sepal and petal measurements.</p>
+            </div>
+            <button id="theme-toggle">Toggle Theme</button>
+        </header>
+
+        <section class="hero-card">
+            <div>
+                <h2>About Classification</h2>
+                <p>This web application loads the Iris dataset from sklearn, trains a Decision Tree classifier automatically on startup, and displays prediction results in a modern dashboard.</p>
+            </div>
+            <div class="hero-actions">
+                <span class="badge">Model Accuracy {{ accuracy_score | round(3) }}</span>
+                <a class="block-link" href="/predict"><button>Start Prediction</button></a>
+            </div>
+        </section>
+
+        <section class="card-grid">
+            <div class="card">
+                <h3>Dataset Size</h3>
+                <p>{{ rows }} rows and {{ cols }} columns from the Iris dataset.</p>
+            </div>
+            <div class="card">
+                <h3>Classifier</h3>
+                <p>Decision Tree</p>
+            </div>
+            <div class="card">
+                <h3>Prediction Page</h3>
+                <p>Enter numeric values for sepal and petal dimensions to see the predicted Iris species.</p>
+            </div>
+        </section>
+
+        <section class="section-header">
+            <h2>Data Preview</h2>
+            <p>Sample records from the Iris dataset.</p>
+        </section>
+
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sepal Length</th>
+                        <th>Sepal Width</th>
+                        <th>Petal Length</th>
+                        <th>Petal Width</th>
+                        <th>Species</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in preview %}
+                    <tr>
+                        <td>{{ row.sepal_length }}</td>
+                        <td>{{ row.sepal_width }}</td>
+                        <td>{{ row.petal_length }}</td>
+                        <td>{{ row.petal_width }}</td>
+                        <td>{{ row.species }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <footer class="footer">
+            <p>Beginner-friendly AI web app built with Flask, sklearn, pandas, and numpy.</p>
+        </footer>
+    </div>
+</body>
+</html>
